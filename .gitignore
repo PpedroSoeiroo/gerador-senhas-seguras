@@ -1,0 +1,28 @@
+# Arquivos e pastas a serem ignorados pelo Git
+
+# Dependências do Node.js
+node_modules/
+
+# Arquivos compilados
+dist/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Logs
+*.log
+
+# Arquivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Arquivos de backup
+*.bak
+*.backup

@@ -1,0 +1,443 @@
+/*
+    GERADOR DE SENHAS SEGURAS - ESTILOS CSS3
+    =========================================
+    
+    Este arquivo contém todos os estilos para o gerador de senhas.
+    
+    CARACTERÍSTICAS IMPLEMENTADAS:
+    - Design moderno com gradientes e sombras
+    - Layout responsivo para desktop e mobile
+    - Animações e transições suaves
+    - Suporte a modo escuro automático
+    - Estados visuais para feedback do usuário
+    - Acessibilidade com foco visível
+    
+    ESTRUTURA DOS ESTILOS:
+    1. Reset e configurações básicas
+    2. Layout principal e container
+    3. Header e tipografia
+    4. Área principal do gerador
+    5. Controles e formulários
+    6. Botões e ações
+    7. Indicador de força da senha
+    8. Responsividade
+    9. Animações e estados especiais
+    10. Acessibilidade e modo escuro
+    
+    DESENVOLVIDO POR: Pedro
+    TECNOLOGIAS: CSS3, Flexbox, Grid, Media Queries
+*/
+
+/* ===========================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   =========================================== */
+/* Reset universal para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configurações do corpo da página */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna e legível */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Gradiente azul/roxo moderno */
+    min-height: 100vh; /* Altura mínima da viewport */
+    color: #333; /* Cor do texto principal */
+    line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+}
+
+/* ===========================================
+   LAYOUT PRINCIPAL E CONTAINER
+   =========================================== */
+/* Container principal com layout flexível */
+.container {
+    max-width: 600px; /* Largura máxima para desktop */
+    margin: 0 auto; /* Centralização horizontal */
+    padding: 20px; /* Espaçamento interno */
+    min-height: 100vh; /* Altura mínima da viewport */
+    display: flex; /* Layout flexível */
+    flex-direction: column; /* Direção vertical */
+}
+
+/* ===========================================
+   HEADER E TIPOGRAFIA
+   =========================================== */
+/* Cabeçalho com título e descrição */
+header {
+    text-align: center; /* Centralização do texto */
+    margin-bottom: 30px; /* Espaçamento inferior */
+    color: white; /* Cor branca para contraste com o fundo */
+}
+
+/* Título principal com efeito de sombra */
+header h1 {
+    font-size: 2.5rem; /* Tamanho grande para destaque */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra sutil para profundidade */
+}
+
+/* Descrição com opacidade reduzida */
+header p {
+    font-size: 1.1rem; /* Tamanho ligeiramente maior */
+    opacity: 0.9; /* Opacidade reduzida para hierarquia visual */
+}
+
+/* ===========================================
+   ÁREA PRINCIPAL DO GERADOR
+   =========================================== */
+/* Container principal do gerador com estilo moderno */
+.generator {
+    background: white; /* Fundo branco para contraste */
+    border-radius: 20px; /* Bordas arredondadas modernas */
+    padding: 30px; /* Espaçamento interno generoso */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Sombra suave para elevação */
+    flex: 1; /* Ocupa espaço disponível */
+}
+
+/* ===========================================
+   EXIBIÇÃO DA SENHA E BOTÃO DE CÓPIA
+   =========================================== */
+/* Container flexível para senha e botão de cópia */
+.password-display {
+    display: flex; /* Layout flexível lado a lado */
+    gap: 10px; /* Espaçamento entre elementos */
+    margin-bottom: 30px; /* Espaçamento inferior */
+}
+
+/* Campo de texto para exibir a senha gerada */
+#passwordOutput {
+    flex: 1; /* Ocupa espaço disponível */
+    padding: 15px 20px; /* Espaçamento interno */
+    border: 2px solid #e1e5e9; /* Borda sutil */
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 1.2rem; /* Tamanho de fonte maior */
+    font-family: 'Courier New', monospace; /* Fonte monoespaçada para senhas */
+    background: #f8f9fa; /* Fundo cinza claro */
+    transition: all 0.3s ease; /* Transição suave para mudanças */
+}
+
+/* Estado de foco do campo de senha */
+#passwordOutput:focus {
+    outline: none; /* Remove outline padrão */
+    border-color: #667eea; /* Borda azul no foco */
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); /* Sombra azul sutil */
+}
+
+/* Botão de cópia com estilo moderno */
+.copy-btn {
+    padding: 15px 20px; /* Espaçamento interno */
+    background: #28a745; /* Verde para ação positiva */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 10px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    font-size: 1.2rem; /* Tamanho de fonte */
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Estado hover do botão de cópia */
+.copy-btn:hover {
+    background: #218838; /* Verde mais escuro */
+    transform: translateY(-2px); /* Elevação sutil */
+}
+
+/* Estado ativo do botão de cópia */
+.copy-btn:active {
+    transform: translateY(0); /* Retorna à posição original */
+}
+
+/* Controls */
+.controls {
+    margin-bottom: 30px;
+}
+
+.control-group {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.control-group:hover {
+    background: #e9ecef;
+}
+
+.control-group label {
+    font-weight: 500;
+    color: #495057;
+    flex: 1;
+    margin-right: 15px;
+}
+
+.control-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #667eea;
+    cursor: pointer;
+}
+
+.control-group input[type="range"] {
+    flex: 1;
+    margin-right: 15px;
+    accent-color: #667eea;
+}
+
+.length-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#lengthValue {
+    font-weight: bold;
+    color: #667eea;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Actions */
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.generate-btn, .clear-btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.generate-btn {
+    background: #667eea;
+    color: white;
+}
+
+.generate-btn:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.clear-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.clear-btn:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.generate-btn:active, .clear-btn:active {
+    transform: translateY(0);
+}
+
+/* ===========================================
+   INDICADOR DE FORÇA DA SENHA
+   =========================================== */
+/* Container do indicador de força com estilo moderno */
+.password-strength {
+    background: #f8f9fa; /* Fundo cinza claro */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    border: 2px solid #e9ecef; /* Borda sutil */
+}
+
+/* Rótulo do indicador de força */
+.strength-label {
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    color: #495057; /* Cor do texto */
+}
+
+/* Barra de progresso da força */
+.strength-bar {
+    height: 8px; /* Altura da barra */
+    background: #e9ecef; /* Fundo cinza claro */
+    border-radius: 4px; /* Bordas arredondadas */
+    overflow: hidden; /* Esconde conteúdo que ultrapassa */
+    margin-bottom: 10px; /* Espaçamento inferior */
+}
+
+/* Indicador visual da força (barra colorida) */
+.strength-indicator {
+    height: 100%; /* Altura total da barra */
+    width: 0%; /* Largura inicial (será alterada via JavaScript) */
+    transition: all 0.3s ease; /* Transição suave para mudanças */
+    border-radius: 4px; /* Bordas arredondadas */
+}
+
+/* Estados de força da senha com cores específicas */
+.strength-indicator.very-weak {
+    width: 20%; /* 20% da barra */
+    background: #dc3545; /* Vermelho para muito fraca */
+}
+
+.strength-indicator.weak {
+    width: 40%; /* 40% da barra */
+    background: #fd7e14; /* Laranja para fraca */
+}
+
+.strength-indicator.fair {
+    width: 60%; /* 60% da barra */
+    background: #ffc107; /* Amarelo para razoável */
+}
+
+.strength-indicator.good {
+    width: 80%; /* 80% da barra */
+    background: #20c997; /* Verde claro para boa */
+}
+
+.strength-indicator.strong {
+    width: 100%; /* 100% da barra */
+    background: #28a745; /* Verde para muito forte */
+}
+
+/* Texto descritivo da força */
+.strength-text {
+    font-size: 0.9rem; /* Tamanho menor */
+    color: #6c757d; /* Cor cinza */
+    text-align: center; /* Centralização */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    opacity: 0.8;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* ===========================================
+   DESIGN RESPONSIVO PARA MOBILE
+   =========================================== */
+/* Media query para dispositivos móveis (até 768px) */
+@media (max-width: 768px) {
+    /* Reduz padding do container em mobile */
+    .container {
+        padding: 15px;
+    }
+    
+    /* Reduz tamanho do título em mobile */
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    /* Reduz padding do gerador em mobile */
+    .generator {
+        padding: 20px;
+    }
+    
+    /* Altera layout dos controles para vertical em mobile */
+    .control-group {
+        flex-direction: column; /* Empilha elementos verticalmente */
+        align-items: flex-start; /* Alinha à esquerda */
+        gap: 10px; /* Espaçamento entre elementos */
+    }
+    
+    /* Remove margem direita dos labels em mobile */
+    .control-group label {
+        margin-right: 0;
+    }
+    
+    /* Empilha botões verticalmente em mobile */
+    .actions {
+        flex-direction: column;
+    }
+    
+    /* Empilha senha e botão de cópia verticalmente em mobile */
+    .password-display {
+        flex-direction: column;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.generator {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Estados especiais */
+.copy-btn.copied {
+    background: #28a745;
+    animation: pulse 0.6s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Melhorias de acessibilidade */
+input:focus, button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* ===========================================
+   SUPORTE A MODO ESCURO AUTOMÁTICO
+   =========================================== */
+/* Media query que detecta preferência do sistema por modo escuro */
+@media (prefers-color-scheme: dark) {
+    /* Altera fundo e cor do texto do gerador para modo escuro */
+    .generator {
+        background: #2d3748; /* Cinza escuro */
+        color: #e2e8f0; /* Cinza claro para texto */
+    }
+    
+    /* Altera fundo dos grupos de controle para modo escuro */
+    .control-group {
+        background: #4a5568; /* Cinza médio */
+    }
+    
+    /* Estado hover dos controles em modo escuro */
+    .control-group:hover {
+        background: #2d3748; /* Cinza mais escuro */
+    }
+    
+    /* Campo de senha em modo escuro */
+    #passwordOutput {
+        background: #4a5568; /* Fundo cinza médio */
+        border-color: #718096; /* Borda cinza */
+        color: #e2e8f0; /* Texto claro */
+    }
+    
+    /* Indicador de força em modo escuro */
+    .password-strength {
+        background: #4a5568; /* Fundo cinza médio */
+        border-color: #718096; /* Borda cinza */
+    }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+    GERADOR DE SENHAS SEGURAS
+    =========================
+    
+    Este arquivo HTML5 contém a estrutura completa do gerador de senhas.
+    
+    CARACTERÍSTICAS IMPLEMENTADAS:
+    - Estrutura semântica HTML5 moderna
+    - Interface responsiva para desktop e mobile
+    - Controles avançados para personalização de senhas
+    - Indicador visual de força da senha
+    - Acessibilidade básica implementada
+    - Suporte a modo escuro automático
+    
+    ESTRUTURA:
+    - Header: Título e descrição do projeto
+    - Main: Área principal com controles e exibição
+    - Footer: Dicas de segurança
+    
+    DESENVOLVIDO POR: Pedro
+    TECNOLOGIAS: HTML5, CSS3, TypeScript
+-->
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas de charset e viewport para responsividade -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Seguras</title>
+    
+    <!-- Link para o arquivo CSS com estilos modernos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Container principal com layout flexível -->
+    <div class="container">
+        <!-- Cabeçalho com título e descrição do projeto -->
+        <header>
+            <h1>🔐 Gerador de Senhas Seguras</h1>
+            <p>Crie senhas fortes e personalizadas para proteger suas contas</p>
+        </header>
+
+        <!-- Área principal do gerador -->
+        <main class="generator">
+            <!-- Seção de exibição da senha gerada -->
+            <div class="password-display">
+                <!-- Campo de texto readonly para exibir a senha gerada -->
+                <input type="text" id="passwordOutput" readonly placeholder="Sua senha aparecerá aqui...">
+                <!-- Botão para copiar a senha para área de transferência -->
+                <button id="copyBtn" class="copy-btn" title="Copiar senha">
+                    📋
+                </button>
+            </div>
+
+            <!-- Seção de controles para personalizar a geração de senhas -->
+            <div class="controls">
+                <!-- Controle de comprimento da senha (4-50 caracteres) -->
+                <div class="control-group">
+                    <label for="length">Comprimento da senha:</label>
+                    <div class="length-control">
+                        <!-- Slider para ajustar o comprimento -->
+                        <input type="range" id="length" min="4" max="50" value="12">
+                        <!-- Exibição do valor atual -->
+                        <span id="lengthValue">12</span>
+                    </div>
+                </div>
+
+                <!-- Controle para incluir letras maiúsculas -->
+                <div class="control-group">
+                    <label for="uppercase">Incluir letras maiúsculas (A-Z)</label>
+                    <input type="checkbox" id="uppercase" checked>
+                </div>
+
+                <!-- Controle para incluir letras minúsculas -->
+                <div class="control-group">
+                    <label for="lowercase">Incluir letras minúsculas (a-z)</label>
+                    <input type="checkbox" id="lowercase" checked>
+                </div>
+
+                <!-- Controle para incluir números -->
+                <div class="control-group">
+                    <label for="numbers">Incluir números (0-9)</label>
+                    <input type="checkbox" id="numbers" checked>
+                </div>
+
+                <!-- Controle para incluir símbolos especiais -->
+                <div class="control-group">
+                    <label for="symbols">Incluir símbolos (!@#$%^&*)</label>
+                    <input type="checkbox" id="symbols" checked>
+                </div>
+
+                <!-- Controle para excluir caracteres similares (melhora legibilidade) -->
+                <div class="control-group">
+                    <label for="excludeSimilar">Excluir caracteres similares (0, O, l, I)</label>
+                    <input type="checkbox" id="excludeSimilar">
+                </div>
+
+                <!-- Controle para excluir caracteres ambíguos -->
+                <div class="control-group">
+                    <label for="excludeAmbiguous">Excluir caracteres ambíguos ({ } [ ] ( ) / \ ' " ` ~ , ; . < >)</label>
+                    <input type="checkbox" id="excludeAmbiguous">
+                </div>
+            </div>
+
+            <!-- Seção de ações principais -->
+            <div class="actions">
+                <!-- Botão principal para gerar nova senha -->
+                <button id="generateBtn" class="generate-btn">🎲 Gerar Nova Senha</button>
+                <!-- Botão para limpar o campo de senha -->
+                <button id="clearBtn" class="clear-btn">🗑️ Limpar</button>
+            </div>
+
+            <!-- Seção de verificação de força da senha -->
+            <div class="password-strength">
+                <div class="strength-label">Força da senha:</div>
+                <!-- Barra visual indicando a força -->
+                <div class="strength-bar">
+                    <div id="strengthIndicator" class="strength-indicator"></div>
+                </div>
+                <!-- Texto descritivo da força -->
+                <div id="strengthText" class="strength-text">Digite uma senha para verificar a força</div>
+            </div>
+        </main>
+
+        <!-- Rodapé com dicas de segurança -->
+        <footer>
+            <p>💡 Dica: Use senhas únicas para cada conta e mantenha-as em um gerenciador de senhas</p>
+        </footer>
+    </div>
+
+    <!-- Carregamento do script JavaScript compilado -->
+    <script src="script.js"></script>
+</body>
+</html>
